@@ -1,0 +1,24 @@
+name: Close inactive issues
+on:
+  schedule:
+    - cron: "0 15 * * MON-FRI"
+
+jobs:
+  close-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/stale@v5
+        with:
+          days-before-issue-stale: 14
+          days-before-issue-close: 7
+          stale-issue-label: "stale"
+          stale-issue-message: |
+            @${{ github.event.issue.author.login }}
+            このIssueは14日間動きがないようなので `stale` ラベルを付与しました。すでに解決している場合はクローズしてください。
+            進捗がある場合はコメントを残しておいてください。
+          close-issue-message: |
+            @${{ github.event.issue.author.login }}
+            このIssueをクローズします。また進展があれば再度オープンして対応を進めてください👍
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
