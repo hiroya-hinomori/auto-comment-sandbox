@@ -15,7 +15,7 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-
+            ${{ github.event.issue.title}}
             ${{ github.event.issue.author }}
             ${{ github.event.issue.author.login }}
             ${{ github.event.issue.author.url }}
