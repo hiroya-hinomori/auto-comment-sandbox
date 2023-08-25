@@ -15,5 +15,8 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            @${{ github.event.issue.author.login }}
+
+            ${{ github.event.issue.author }}
+            ${{ github.event.issue.author.login }}
+            ${{ github.event.issue.author.url }}
             This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
