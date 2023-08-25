@@ -18,13 +18,12 @@ jobs:
             ${{ github.event.issue.title}}
 
             author
-            ${{ github.event.issue.author }}
             ${{ github.event.issue.author.login }}
-            ${{ github.event.issue.author.url }}
 
             editor
-            ${{ github.event.issue.editor }}
             ${{ github.event.issue.editor.login }}
-            ${{ github.event.issue.editor.url }}
+
+            user
+            ${{ github.event.issue.user.login }}
 
             This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
